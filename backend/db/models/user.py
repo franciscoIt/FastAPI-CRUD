@@ -1,3 +1,4 @@
+from typing import List
 from db.base_class import Base
 from sqlalchemy import Boolean, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship

@@ -5,7 +5,6 @@ from sqlalchemy.orm import as_declarative
 """
 With @as_declarative, SQLAlchemy will:
 
-
     - Recognize Base as the base class for all models 
     (i.e., any class inheriting from Base will 
     automatically have SQLAlchemy ORM features).
@@ -31,11 +30,4 @@ It indicates that this attribute should be evaluated
 each time a subclass is created. Here, it is used to 
 define the __tablename__ attribute, which SQLAlchemy 
 uses to name tables in the database.
-"""
-
-"""
-In this code, @declared_attr allows __tablename__ 
-to be set dynamically based on the subclass name 
-(cls.__name__.lower()). For example:
-*** Removes the need to manually specify __tablename__ for every model.
 """
