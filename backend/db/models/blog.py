@@ -1,5 +1,5 @@
 from typing import List
-from datetime import datetime
+from datetime import datetime,date
 from sqlalchemy import Text, String, Boolean, DateTime, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -12,5 +12,5 @@ class Blog(Base):
     content: Mapped[str | None] = mapped_column(Text, nullable=True)
     author_id: Mapped[int] = mapped_column(ForeignKey("user.id"))
     author: Mapped["User"] = relationship("User", back_populates="blogs")
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=date.today())
     is_active: Mapped[bool] = mapped_column(Boolean, default=False)
