@@ -3,3 +3,4 @@ backend/core/.env
 **/*.pyc
 **/__pycache__/
 **/__pycache__/**
+backend/sql_app.db
