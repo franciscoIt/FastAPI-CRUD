@@ -4,3 +4,4 @@ backend/core/.env
 **/__pycache__/
 **/__pycache__/**
 backend/sql_app.db
+../.idea/

@@ -3,8 +3,8 @@ from sqlalchemy.orm import Session
 from fastapi import Depends
 
 from db.session import get_db
-from schemas.blog import ShowBlog, CreateBlog, UpdateBlog
-from db.repository.blog import create_new_blog, retreive_blog, list_blogs, update_blog
+from schemas.blog import ShowBlog, CreateBlog, UpdateBlog, DeleteBlog
+from db.repository.blog import create_new_blog, retreive_blog, list_blogs, update_blog, delete_blog
 from typing import List
 
 router = APIRouter()
@@ -35,3 +35,13 @@ def update_a_blog(id: int, blog: UpdateBlog, db: Session = Depends(get_db)):
     if not blog:
         raise HTTPException(detail=f"Blog with id {id} does not exist")
     return blog
+
+@router.delete("/blog/{id}")
+def delete_blog(id:int, author_id:int, db: Session = Depends(get_db)):
+    response:dict = delete_blog(id=id, author_id=author_id, db=db)
+    
+    if response.get("error")
+        raise HTTPException(detail=f"An error has ocurred", status_code=status.HTTP_404_NOT_FOUND)
+    
+    return msg
+    

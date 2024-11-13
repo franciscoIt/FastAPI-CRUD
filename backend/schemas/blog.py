@@ -28,3 +28,6 @@ class ShowBlog(BaseModel):
 
 class UpdateBlog(CreateBlog):
     pass
+
+class DeleteBlog():
+    pass
