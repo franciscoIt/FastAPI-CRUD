@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session 
-from schemas.blog import CreateBlog, ShowBlog
+from schemas.blog import CreateBlog, ShowBlog, UpdateBlog
 from db.models.blog import Blog
 from typing import List
 
@@ -17,5 +17,18 @@ def retreive_blog(id: int, db: Session):
 
 
 def list_blogs(db : Session) -> List[Blog] :
-    blogs = db.query(Blog).filter(Blog.is_active==True).all()    
+    blogs = db.query(Blog).all()    
     return blogs
+
+
+def update_blog(id: int, updated_blog: UpdateBlog, author_id: int, db: Session):
+    db_blog = db.query(Blog).filter(Blog.id==id).first()
+    if not db_blog:
+        return 
+    
+    db_blog.title = updated_blog.title
+    db_blog.content = updated_blog.content
+
+    db.add(db_blog)
+    db.commit()
+    return db_blog
