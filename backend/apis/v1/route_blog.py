@@ -4,7 +4,7 @@ from fastapi import Depends
 
 from db.session import get_db
 from schemas.blog import ShowBlog, CreateBlog, UpdateBlog, DeleteBlog
-from db.repository.blog import create_new_blog, retreive_blog, list_blogs, update_blog, delete_blog
+from db.repository.blog import create_new_blog, retreive_blog, list_blogs, update_blog, delete_blog_by_ids
 from typing import List
 
 router = APIRouter()
@@ -38,10 +38,12 @@ def update_a_blog(id: int, blog: UpdateBlog, db: Session = Depends(get_db)):
 
 @router.delete("/blog/{id}")
 def delete_blog(id:int, author_id:int, db: Session = Depends(get_db)):
-    response:dict = delete_blog(id=id, author_id=author_id, db=db)
+    response:dict = delete_blog_by_ids(id=id, author_id=author_id, db=db)
     
-    if response.get("error")
+    if response.get("error"):
         raise HTTPException(detail=f"An error has ocurred", status_code=status.HTTP_404_NOT_FOUND)
     
-    return msg
+    return response.get("msg")
+    
+
     

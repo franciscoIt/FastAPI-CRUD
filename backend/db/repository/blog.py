@@ -34,17 +34,22 @@ def update_blog(id: int, updated_blog: UpdateBlog, author_id: int, db: Session):
     return db_blog
 
 
-def delete_blog (id:int, author_id:int, db:Session) -> str | None:
-    db_blog = db.query(Blog).filter(Blog.id==id).first()
+def delete_blog_by_ids (id:int, author_id:int, db:Session) -> dict | None:
+    """"
+    Notice the use of .first() If we write, blog_in_db = db.query(Blog).filter(Blog.id == id).first() 
+    Then we will get an actual blog object from the database. This blog object has no delete() method defined. 
+    So, instead, we are working with the reference of the blog object and deleting it.
+    """
+    
+    db_blog = db.query(Blog).filter(Blog.id==id)
     response_dict = {}
     
-    if db_blog:
+    if db_blog.first():
         response_dict["msg"] = f"deleted blog with id {id}"
         
     else: 
         response_dict["error"] = f"Could not find blog with id {id}"
     
-    db.delete(db_blog)
+    db_blog.delete()
     db.commit()
-    
     return response_dict
