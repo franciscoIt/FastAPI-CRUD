@@ -21,5 +21,9 @@ class Settings:
     if os.getenv("ENVIRONMENT") == "development":
         DATABASE_URL = "sqlite:///./sql_app.db"
 
+    SECRET_KEY: str = os.getenv("SECRET_KEY")  # new
+    ALGORITHM = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+
 
 settings = Settings()
