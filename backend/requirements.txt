@@ -5,8 +5,9 @@ psycopg2
 alembic
 python-dotenv
 pydantic[email]
-passlib[bcrypt] 
+passlib[bcrypt]
 
 
 pytest==7.4.0
 httpx==0.24.1
+pre-commit==3.3.3
