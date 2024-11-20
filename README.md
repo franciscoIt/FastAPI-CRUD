@@ -2,7 +2,7 @@
 
 ## Overview
 i
-This project is a FastAPI-based application designed to explore the FastAPI capabilities. Repository pattern.
+This project is a FastAPI-based application designed in a repository patter to explore the FastAPI capabilities.
 
 ---
 
