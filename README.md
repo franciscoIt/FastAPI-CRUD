@@ -35,8 +35,8 @@ This project is a FastAPI-based application designed in a repository patter to e
 2. Create a virtual environment:
    ```bash
    python3 -m venv .venv
-   source venv/bin/activate  # For Linux/macOS
-   venv\Scripts\activate     # For Windows
+   source .venv/bin/activate  # For Linux/macOS
+   .venv\Scripts\activate     # For Windows
    ```
 3. Install dependencies:
    ```bash
