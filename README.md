@@ -31,4 +31,27 @@ This project is a FastAPI-based application designed to explore the FastAPI capa
 1. Clone the repository:
    ```bash
    git clone <repository-url>
-   cd <repository-name>
+   cd <repository-name>```
+2. Create a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # For Linux/macOS
+   venv\Scripts\activate     # For Windows
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Configure environment variables:
+   - Create a .env file based on the .env.example provided in the repository.
+6. Apply database migrations:
+   ```bash
+   alembic upgrade head
+   ```
+7. Run the application:
+   ```bash
+   uvicorn main:app --reload
+   ```
+
+
+
