@@ -44,6 +44,7 @@ This project is a FastAPI-based application designed to explore the FastAPI capa
    ```
 4. Configure environment variables:
    - Create a .env file based on the .env.example provided in the repository.
+
 6. Apply database migrations:
    ```bash
    alembic upgrade head
@@ -52,6 +53,8 @@ This project is a FastAPI-based application designed to explore the FastAPI capa
    ```bash
    uvicorn main:app --reload
    ```
-
+## Usage
+1. Access the API documentation at http://localhost:8000/docs.
+2. Test endpoints interactively using Swagger UI or ReDoc.
 
 
