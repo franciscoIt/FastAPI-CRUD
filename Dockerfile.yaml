@@ -1,0 +1,15 @@
+# Use a base image
+FROM python:3.11
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the project's files
+COPY . .
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Specify the command to run your app
+CMD ["python", "main.py"]
+
