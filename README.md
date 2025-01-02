@@ -48,7 +48,7 @@ This project is a FastAPI-based application designed in a repository patter to e
 
 6. Apply database migrations:
    ```bash
-   alembic upgrade head
+   cd backend && alembic upgrade head
    ```
 7. Run the application:
    ```bash
